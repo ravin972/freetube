@@ -1,0 +1,17 @@
+{
+  "name": "free_tube",
+  "version": "1.0.0",
+  "description": "a free alternative service like youtube",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "javascript",
+    "freetube",
+    "ravin",
+    "for_people"
+  ],
+  "author": "Ravinder Pandey",
+  "license": "ISC"
+}
