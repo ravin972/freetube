@@ -9,8 +9,14 @@ export const verifyJWT = asyncHandler(async (req, _, next) => {
       req.cookies?.accessToken ||
       req.header("Authorization")?.replace("Bearer ", "");
 
+    console.log(token);
     if (!token) {
       throw new ApiError(401, "Unauthorized request");
+    }
+
+    // Check if the token is a string
+    if (typeof token !== 'string') {
+      throw new ApiError(401, "Invalid token format");
     }
 
     const decodedToken = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
@@ -20,8 +26,7 @@ export const verifyJWT = asyncHandler(async (req, _, next) => {
     );
 
     if (!user) {
-      //Todo : discuss on frontend
-      throw new ApiError(401, "Invalid access token");
+      throw new ApiError(401, "Invalid Access Token");
     }
 
     req.user = user;
